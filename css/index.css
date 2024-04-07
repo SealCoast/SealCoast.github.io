@@ -1757,7 +1757,7 @@ figure.highlight pre .javascript .function {
 #article-container pre,
 #article-container code {
   font-size: 14px;
-  font-family: LXGW !important;
+  font-family: consolas, LXGW !important;
 }
 #article-container code {
   padding: 2px 4px;
