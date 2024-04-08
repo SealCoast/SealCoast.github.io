@@ -145,3 +145,13 @@ body,
   [data-theme="dark"] #page-header::before {
     background: transparent !important;
   }
+
+
+/* 图标自定义 */
+.iconfont{
+    font-family: "iconfont" !important;
+    font-size: 22px !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
