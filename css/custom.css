@@ -97,7 +97,7 @@ body,
 
 /* 侧边栏个人信息卡片动态渐变色 */
 #aside-content > .card-widget.card-info {
-    background: url('/img/personal/day.png');
+    background: url('/img/personal/day.jpg');
     box-shadow: 0 0 5px rgb(66, 68, 68);
     position: relative;
     background-size: 100% 100%;
