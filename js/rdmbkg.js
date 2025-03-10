@@ -13,7 +13,7 @@ var backimg =[
     "url(/img/banner/002.jpg)"
   ];
   //获取banner图片总数，生成随机数
-  var bannerindex =Math.ceil(Math.random() * (bannerimg.length-1));
+  var bannerindex =Math.ceil(Math.random() * (bannerimg.length));
   //重设banner图片
   document.getElementById("page-header").style.backgroundImage = bannerimg[bannerindex];
   
