@@ -2359,8 +2359,8 @@ figure.highlight pre .javascript .function {
 }
 :root {
   --recent-post-bgcolor: rgba(255,255,255,0.9);
-  --article-content-bgcolor: #b2cf75;
-  --recent-post-arrow: rgba(35,35,35,0.5);
+  --article-content-bgcolor: rgba(0,196,183,0.43);
+  --recent-post-arrow: rgba(255,255,255,0.5);
   --recent-post-cover-shadow: #fff;
   --recent-post-transition: all 0.5s cubic-bezier(0.59, 0.01, 0.48, 1.17);
 }
