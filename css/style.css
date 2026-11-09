@@ -748,3 +748,44 @@ td, th, table caption, table td, table th {
   font-size: 1.1em;
   text-transform: none;
 }
+
+/* Archives: mother collections, nested series and a final chronological index. */
+.archives-directory { margin-top: 2.5rem; }
+.archives-directory-title { margin-bottom: 1.75rem; }
+.archive-collection { border: 0; }
+.archives-by-collection > .archive-collection, .archive-timeline {
+  border-bottom: 1px solid var(--tertiary-color);
+  padding: 1rem 0;
+}
+.archive-collection-summary, .archive-month-summary {
+  align-items: baseline;
+  cursor: pointer;
+  display: flex;
+  gap: 0.65rem;
+  line-height: 1.6;
+  list-style: none;
+}
+.archive-collection-summary::-webkit-details-marker, .archive-month-summary::-webkit-details-marker { display: none; }
+.archive-collection-summary::before, .archive-month-summary::before { content: '+'; flex-shrink: 0; width: 0.8em; color: var(--secondary-color); }
+.archive-collection[open] > .archive-collection-summary::before, .archive-month[open] > .archive-month-summary::before { content: '−'; }
+.archive-collection-summary { font-size: 1.1em; font-weight: 700; }
+.archive-count { color: var(--secondary-color); flex-shrink: 0; font-size: 0.7em; font-weight: 400; margin-left: auto; }
+.archive-collection-content { padding: 0.5rem 0 0.25rem 1rem; }
+.archive-tree-list { font-size: var(--article-body-size); list-style: none; margin: 0; padding: 0; }
+.archive-tree-list > li { margin: 0; padding: 0; }
+.archive-tree-list .archive-collection { margin: 0.75rem 0; }
+.archive-tree-list .archive-collection-summary { font-size: 1em; }
+.archive-directory-link { font-size: calc(var(--article-body-size) - 2px); line-height: 1.6; margin: 0.25rem 0 0.6rem; text-align: right; }
+.archive-directory-link a { color: var(--secondary-color); }
+.archive-directory-post { align-items: baseline; border: 0; display: flex; gap: 1rem; justify-content: space-between; line-height: 1.7; padding: 0.55rem 0; }
+.archive-directory-post-title { min-width: 0; overflow-wrap: anywhere; text-transform: none; }
+.archive-directory-post-date { color: var(--secondary-color); flex-shrink: 0; font-size: calc(var(--article-body-size) - 2px); }
+.archive-directory-post:hover, .archive-directory-link a:hover { color: var(--link-hover-color); text-decoration: underline; text-underline-offset: 0.2em; }
+.archives-directory summary:focus-visible, .archives-directory a:focus-visible { outline: none; text-decoration: underline; text-underline-offset: 0.25em; }
+.archive-month { margin: 0.75rem 0; }
+.archive-month-summary { color: var(--secondary-color); font-size: 0.85em; }
+.archive-month > .archive-tree-list { padding-left: 1rem; }
+@media (max-width: 520px) {
+  .archive-directory-post { align-items: flex-start; flex-direction: column; gap: 0.1rem; }
+  .archive-collection-content, .archive-month > .archive-tree-list { padding-left: 0.65rem; }
+}
