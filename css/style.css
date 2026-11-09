@@ -1,4 +1,12 @@
-@import url('//fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display+SC:wght@400;900&display=swap');
+/* Use the local Chinese font only for CJK characters; Latin uses the browser serif. */
+@font-face {
+  font-family: "Blog Chinese";
+  src: local("STZhongsong"), local("华文中宋");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FE10-FE1F, U+FE30-FE4F, U+FF00-FFEF, U+20000-323AF;
+}
  
 /* general */
 :root {
@@ -11,9 +19,9 @@
   --link-hover-color: #618794;
   --link-bg-color: #dae4e7;
   --selection-color: #dae4e7;
-  --body-stack: "Lora", "Georgia", "Times New Roman", serif;
-  --secondary-stack: "Lato", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Verdana", sans-serif;
-  --title-stack: "Playfair Display SC", "Georgia", serif;
+  --body-stack: "Blog Chinese", serif;
+  --secondary-stack: "Blog Chinese", serif;
+  --title-stack: "Blog Chinese", serif;
 }
 
 html {
@@ -55,6 +63,8 @@ body {
 }
  
 #title {
+  line-height: 1.5;
+  overflow-wrap: anywhere;
   font-family: var(--title-stack);
   font-size: 2em;
   font-weight: 900;
@@ -371,19 +381,11 @@ img {
 }
 
 a img {
-  -webkit-transition-duration: .3s;
-  -webkit-transition-property: border;
-  border: 3px solid var(--bg-color);
-  transition-duration: .3s;
-  transition-property: border;
+  border: 0;
 }
 
 a img:hover {
-  -webkit-transition-duration: .3s;
-  -webkit-transition-property: border;
-  border: 3px solid var(--secondary-color);
-  transition-duration: .3s;
-  transition-property: border;
+  border: 0;
 }
 
 .article-gallery img, table {
@@ -417,10 +419,23 @@ td, th, table caption, table td, table th {
 }
 
 #settings-container {
-  background: var(--tertiary-color);
+  background: var(--bg-color);
+  border-top: 1px solid var(--tertiary-color);
   bottom: 0;
   position: fixed;
-  right: 0;
+  right: 1rem;
+}
+
+#dark-mode {
+  background: transparent;
+  border: 0;
+  color: var(--secondary-color);
+  font: inherit;
+}
+
+#dark-mode:focus-visible {
+  outline: none;
+  text-decoration: underline;
 }
 
 #sans-font, #dark-mode {
@@ -486,22 +501,38 @@ td, th, table caption, table td, table th {
 }
 
 .home-series-card {
-  border: 1px solid var(--tertiary-color);
-  border-radius: 0.35rem;
+  border: 0;
+  border-radius: 0;
+  position: relative;
 }
 
+.home-series-card::after {
+  background: var(--tertiary-color);
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.home-series-card:nth-child(2)::after { width: 78%; }
+.home-series-card:nth-child(3)::after { width: 56%; }
+
 .home-card:hover, .home-card:focus-visible {
-  background: var(--link-bg-color);
+  background: transparent;
+  color: var(--link-hover-color);
   border-bottom-width: 0;
 }
 
 .home-series-card:hover, .home-series-card:focus-visible {
-  border-bottom-width: 1px;
+  border: 0;
 }
 
 .home-card:focus-visible, .home-archive-link:focus-visible {
-  outline: 2px solid var(--link-hover-color);
-  outline-offset: 3px;
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
 }
 
 .home-series-number {
@@ -530,8 +561,22 @@ td, th, table caption, table td, table th {
 }
 
 .home-recent-item {
-  border-bottom: 1px solid var(--tertiary-color);
+  border: 0;
+  position: relative;
 }
+
+.home-recent-item::after {
+  background: var(--tertiary-color);
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.home-recent-item:nth-child(2)::after { width: 78%; }
+.home-recent-item:nth-child(3)::after { width: 56%; }
 
 .home-recent-card {
   padding: 1.25rem 0.5rem;

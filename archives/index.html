@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>归档 | 奥德赛观测站MXII‌-XI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -16,29 +16,29 @@
 
   
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="奥德赛观测站MXII‌-XI">
 <meta property="og:url" content="https://sealcoast.github.io/archives/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="奥德赛观测站MXII‌-XI">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="CoralManta">
 <meta name="twitter:card" content="summary"><meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
   <div id="wrapper">
     <header id="header">
   <h1 id="title">
-    <a href="/">Hexo</a>
+    <a href="/">奥德赛观测站MXII‌-XI</a>
   </h1>
   <nav>
     
     
       
-      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/">首页</a>
     
       
         <span class="nav-spacer">×</span>
       
-      <a class="nav-link" href="/archives">Archives</a>
+      <a class="nav-link" href="/archives">归档</a>
     
     
   </nav>
@@ -48,7 +48,7 @@
       
   <section class="archives-wrap" style="margin-bottom: 0.5em;">
     <input class="hidden-input" type="checkbox" onClick="tgl(this)" id="toggle-all">
-    <label class="month" for="toggle-all">Toggle all</label>
+    <label class="month" for="toggle-all">展开／收起全部</label>
   </section>
   
   
@@ -61,7 +61,7 @@
       
       <section class="archives-wrap">
         <input class="hidden-input" type="checkbox" name="expand" id="expand1">
-        <label class="month" for="expand1">November 2026</label>
+        <label class="month" for="expand1">十一月 2026</label>
         <div class="archives hidden">
     
     <article class="archive-article archive-type-post">
@@ -168,11 +168,30 @@ let tgl=(s)=>{x=document.getElementsByName("expand");for(let i=0;i<x.length;i++)
 
 
 <div id="settings-container">
-  <div id="dark-mode">dark</div>
-  <div id="sans-font">sans</div>
+  <button type="button" id="dark-mode" aria-label="切换深浅配色">深色</button>
 </div>
-<script type="text/javascript">
-let d=document,r=d.documentElement.style,f=r.setProperty.bind(r),l=localStorage,s=l.getItem('s')||(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches),n=l.getItem('n'),m=d.getElementById("dark-mode"),b=()=>{f('--bg-color','#fafafa');f('--code-bg-color','#f4f4f4');f('--text-color','#212121');f('--secondary-color','#808080');f('--tertiary-color','#b0b0b0');f('--link-color','#b5c8cf');f('--link-hover-color','#618794');f('--link-bg-color','#dae4e7');f('--selection-color','#dae4e7');m.innerHTML="dark"},c=()=>{f('--bg-color','#212121');f('--code-bg-color','#292929');f('--text-color','#fff');f('--secondary-color','#c0c0c0');f('--tertiary-color','#6e6e6e');f('--link-color','#4d6b75');f('--link-hover-color','#96b1bb');f('--link-bg-color','#5d828e');f('--selection-color','#acc1c9');m.innerHTML="light"},o=d.getElementById("sans-font"),e=()=>{f('--body-stack','"Lora", "Georgia", "Times New Roman", serif');o.innerHTML="sans"},g=()=>{f('--body-stack','"Lato", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Verdana", sans-serif');o.innerHTML="serif"};m.onclick=()=>{if(s==2){s=1;l.setItem('s',s);c()}else{s=2;l.setItem('s',s);b()}};o.onclick=()=>{if(n==2){n=1;l.setItem('n',n);g()}else{n=2;l.setItem('n',n);e()}};if(!s){s=2;l.setItem('s',2)};if(s==1){c()};if(!n){n=2;l.setItem('n',2)};if(n==1){g()};
+<script>
+(() => {
+  const root = document.documentElement.style;
+  const button = document.getElementById('dark-mode');
+  let saved;
+  try { saved = localStorage.getItem('s'); } catch (_) {}
+  let dark = saved ? saved === '1' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const light = ['#fafafa','#f4f4f4','#212121','#808080','#b0b0b0','#b5c8cf','#618794','#dae4e7','#dae4e7'];
+  const night = ['#212121','#292929','#fff','#c0c0c0','#6e6e6e','#4d6b75','#96b1bb','#5d828e','#acc1c9'];
+  const names = ['bg-color','code-bg-color','text-color','secondary-color','tertiary-color','link-color','link-hover-color','link-bg-color','selection-color'];
+  function apply() {
+    names.forEach((name, index) => root.setProperty('--' + name, (dark ? night : light)[index]));
+    button.textContent = dark ? '浅色' : '深色';
+    button.setAttribute('aria-pressed', String(dark));
+  }
+  button.onclick = () => {
+    dark = !dark;
+    try { localStorage.setItem('s', dark ? '1' : '2'); } catch (_) {}
+    apply();
+  };
+  apply();
+})();
 </script>
 
 
