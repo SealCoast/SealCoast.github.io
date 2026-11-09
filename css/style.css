@@ -428,3 +428,119 @@ td, th, table caption, table td, table th {
   float: right;
   padding: 0.5em;
 }
+
+/* Custom home sections */
+.home-sections {
+  margin-top: 2.5rem;
+}
+
+.home-section + .home-section {
+  margin-top: 3rem;
+}
+
+.home-section-heading {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.home-section-title {
+  font-family: var(--secondary-stack);
+  font-size: 1.1em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0 0 1rem;
+}
+
+.home-section-heading .home-section-title {
+  margin-bottom: 0;
+}
+
+.home-archive-link, .home-card-label {
+  color: var(--secondary-color);
+  font-family: var(--secondary-stack);
+  font-size: 0.75em;
+  line-height: 1.5;
+}
+
+.home-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-series-list {
+  gap: 0.75rem;
+}
+
+.home-card {
+  align-items: center;
+  border-bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  transition: background-color 0.2s;
+}
+
+.home-series-card {
+  border: 1px solid var(--tertiary-color);
+  border-radius: 0.35rem;
+}
+
+.home-card:hover, .home-card:focus-visible {
+  background: var(--link-bg-color);
+  border-bottom-width: 0;
+}
+
+.home-series-card:hover, .home-series-card:focus-visible {
+  border-bottom-width: 1px;
+}
+
+.home-card:focus-visible, .home-archive-link:focus-visible {
+  outline: 2px solid var(--link-hover-color);
+  outline-offset: 3px;
+}
+
+.home-series-number {
+  color: var(--secondary-color);
+  font-family: var(--secondary-stack);
+  font-size: 1.25em;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-card-title {
+  font-size: 1.3em;
+  letter-spacing: 0;
+  line-height: 1.4;
+  margin: 0.15rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.home-card-arrow {
+  color: var(--secondary-color);
+  flex-shrink: 0;
+}
+
+.home-recent-item {
+  border-bottom: 1px solid var(--tertiary-color);
+}
+
+.home-recent-card {
+  padding: 1.25rem 0.5rem;
+}
+
+.home-card-summary {
+  color: var(--secondary-color);
+  font-size: 0.85em;
+  line-height: 1.6;
+  margin: 0.6rem 0 0;
+  overflow-wrap: anywhere;
+}
