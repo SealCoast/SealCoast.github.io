@@ -789,3 +789,27 @@ td, th, table caption, table td, table th {
   .archive-directory-post { align-items: flex-start; flex-direction: column; gap: 0.1rem; }
   .archive-collection-content, .archive-month > .archive-tree-list { padding-left: 0.65rem; }
 }
+
+/* Quiet, right-aligned credits and writing license at the end of each page. */
+.site-footer {
+  color: var(--secondary-color);
+  font-family: var(--body-stack);
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 4rem;
+  text-align: right;
+}
+.site-footer p { margin: 0 0 0.3em; }
+.site-footer a { text-decoration: underline; text-underline-offset: 0.2em; }
+.site-footer a:hover { color: var(--link-hover-color); }
+
+/* Optional BGM note below the date; the author's field supplies only the content. */
+.article-bgm {
+  color: var(--tertiary-color);
+  font-family: var(--body-stack);
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0.5rem 0 0;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
