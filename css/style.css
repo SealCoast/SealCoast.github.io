@@ -1,4 +1,4 @@
-/* Use the local Chinese font only for CJK characters; Latin uses the browser serif. */
+/* Prefer local STZhongsong, then the bundled CJK webfont. Latin and digits use the browser serif. */
 @font-face {
   font-family: "Blog Chinese";
   src: local("STZhongsong"), local("华文中宋");
@@ -10,6 +10,8 @@
  
 /* general */
 :root {
+  --site-body-size: clamp(16px, 2.4vw, 21px);
+  --article-body-size: calc(var(--site-body-size) - 4px);
   --bg-color: #fafafa;
   --code-bg-color: #f4f4f4;
   --text-color: #212121;
@@ -19,9 +21,9 @@
   --link-hover-color: #618794;
   --link-bg-color: #dae4e7;
   --selection-color: #dae4e7;
-  --body-stack: "Blog Chinese", serif;
-  --secondary-stack: "Blog Chinese", serif;
-  --title-stack: "Blog Chinese", serif;
+  --body-stack: "Blog Chinese", "Blog Chinese Web", serif;
+  --secondary-stack: "Blog Chinese", "Blog Chinese Web", serif;
+  --title-stack: "Blog Chinese", "Blog Chinese Web", serif;
 }
 
 html {
@@ -33,7 +35,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-stack);
   font-size: 16px;
-  font-size: clamp(16px, 2.4vw, 21px);
+  font-size: var(--site-body-size);
   margin: auto;
   min-height: 100%;
   position: relative;
@@ -69,7 +71,7 @@ body {
   font-size: 2em;
   font-weight: 900;
   letter-spacing: 0.05em;
-  margin: 1em 0;
+  margin: 1em 0 0.35em;
   text-align: center;
 }
 
@@ -101,19 +103,26 @@ body {
  
 .article-title {
   font-family: var(--title-stack);
-  font-size: 2em;
+  font-size: calc(2em - 6px);
   font-weight: normal;
   letter-spacing: 0.05em;
   margin-bottom: .25em;
 }
 
 .article-entry {
+  font-size: var(--article-body-size);
   line-height: 1.5;
   margin-bottom: 1em;
   overflow: visible;
 }
 
+.article-entry p {
+  margin-bottom: 2rem;
+  text-indent: 2em;
+}
+
 .article-category {
+  font-size: calc(1em - 6px);
   line-height: 1.5;
 }
  
@@ -454,11 +463,7 @@ td, th, table caption, table td, table th {
 }
 
 .home-section-heading {
-  align-items: baseline;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  justify-content: space-between;
+  display: block;
   margin-bottom: 1rem;
 }
 
@@ -468,6 +473,7 @@ td, th, table caption, table td, table th {
   font-weight: 700;
   letter-spacing: 0.08em;
   margin: 0 0 1rem;
+  text-align: center;
 }
 
 .home-section-heading .home-section-title {
@@ -486,7 +492,7 @@ td, th, table caption, table td, table th {
   flex-direction: column;
 }
 
-.home-series-list {
+.home-series-list, .home-recent-list {
   gap: 0.75rem;
 }
 
@@ -548,7 +554,8 @@ td, th, table caption, table td, table th {
 }
 
 .home-card-title {
-  font-size: 1.3em;
+  font-size: 1.15em;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 1.4;
   margin: 0.15rem 0 0;
@@ -578,14 +585,166 @@ td, th, table caption, table td, table th {
 .home-recent-item:nth-child(2)::after { width: 78%; }
 .home-recent-item:nth-child(3)::after { width: 56%; }
 
-.home-recent-card {
-  padding: 1.25rem 0.5rem;
-}
 
 .home-card-summary {
   color: var(--secondary-color);
   font-size: 0.85em;
   line-height: 1.6;
-  margin: 0.6rem 0 0;
+  margin: 0.65rem 0 0;
   overflow-wrap: anywhere;
+}
+
+/* Header location and the independent archive link keep section headings centered. */
+.site-location {
+  color: var(--secondary-color);
+  font-family: var(--secondary-stack);
+  font-size: 0.7em;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+.site-location span {
+  margin-right: 0.4em;
+}
+
+.home-archive-link {
+  display: block;
+  margin-top: 0.7rem;
+  text-align: right;
+}
+
+/* Collections use the same typography and horizontal separators as the home page. */
+.home-card-label {
+  display: block;
+}
+
+
+.collection-page {
+  margin-top: 2.5rem;
+}
+
+.collection-header {
+  border-bottom: 1px solid var(--tertiary-color);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+.collection-subtitle {
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.collection-title {
+  margin: 0 0 1rem;
+  overflow-wrap: anywhere;
+}
+
+.collection-description {
+  color: var(--secondary-color);
+  font-size: 0.85em;
+  line-height: 1.8;
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+
+.collection-empty {
+  color: var(--secondary-color);
+  font-size: 0.85em;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Smaller collection titles. */
+.collection-title { font-size: 1.75em; font-weight: 700; }
+
+.series-breadcrumb { color: var(--secondary-color); font-size: 0.75em; line-height: 1.8; margin: 2rem 0 1rem; text-align: center; }
+.series-breadcrumb a:hover { text-decoration: underline; }
+.collection-children { margin-bottom: 2.5rem; }
+.collection-tags { margin-top: 1rem; font-size: calc(0.75em - 6px); line-height: 1.8; }
+.collection-tags a { border-bottom: 1px solid var(--tertiary-color); }
+
+/* Article title and timestamp sizes follow the reading body at every screen width. */
+.article-type-post .article-title {
+  font-size: calc(var(--article-body-size) + 4px);
+  font-weight: 700;
+}
+
+.article-type-post .article-meta {
+  font-size: calc(var(--article-body-size) - 2px);
+}
+
+#header .nav-link {
+  font-size: calc(1em - 2px);
+}
+
+/* Reading navigation stays within the article's closest collection. */
+.series-pagination {
+  font-size: var(--article-body-size);
+  margin-top: 2em;
+}
+
+.series-pagination-context {
+  line-height: 1.5;
+  text-align: center;
+}
+
+.series-pagination .article-nav {
+  display: grid;
+  font-size: var(--article-body-size);
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  line-height: 1.5;
+  margin: 1.5em 0;
+}
+
+.article-nav-next {
+  text-align: right;
+}
+
+.article-nav-title {
+  margin-top: 0.35em;
+  overflow-wrap: anywhere;
+}
+
+/* Recent Updates uses the same type scale as Series with an exact 2px reduction. */
+.home-section {
+  --home-font-offset: 0px;
+  font-size: calc(var(--site-body-size) - var(--home-font-offset));
+}
+
+.home-section[aria-labelledby="recent-posts-title"] {
+  --home-font-offset: 2px;
+}
+
+.home-section .home-section-title {
+  font-size: calc(var(--site-body-size) * 1.1 - var(--home-font-offset));
+}
+
+.home-section .home-card-title {
+  font-size: calc(var(--site-body-size) * 1.15 - var(--home-font-offset));
+}
+
+.home-section .home-card-label, .home-section .home-archive-link {
+  font-size: calc(var(--site-body-size) * 0.75 - var(--home-font-offset));
+}
+
+.home-section .home-card-summary {
+  font-size: calc(var(--site-body-size) * 0.85 - var(--home-font-offset));
+}
+
+/* Collection lists use equal separators and the Articles heading's text size. */
+.collection-page .home-series-card::after,
+.collection-page .home-recent-item::after,
+.collection-index .home-series-card::after {
+  width: 100%;
+}
+
+.collection-page .home-card-title,
+.collection-index .home-card-title {
+  font-size: 1.1em;
+  text-transform: none;
 }
