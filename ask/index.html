@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Question Box | 奥德赛观测站MXII‌-XI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+<link rel="stylesheet" href="/fonts/noto-serif-sc/webfont.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Question Box">
+<meta property="og:url" content="https://sealcoast.github.io/ask/index.html">
+<meta property="og:site_name" content="奥德赛观测站MXII‌-XI">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-19T14:08:57.587Z">
+<meta property="article:modified_time" content="2026-11-19T14:08:57.587Z">
+<meta property="article:author" content="CoralManta">
+<meta name="twitter:card" content="summary"><meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="wrapper">
+    
+<header id="header">
+  <h1 id="title">
+    <a href="/">奥德赛观测站MXII‌-XI</a>
+  </h1>
+  <p class="site-location"><span aria-hidden="true">◇</span> Location: Main Cabin</p>
+  <nav>
+    
+    
+      
+      <a class="nav-link" href="/">Home</a>
+    
+      
+        <span class="nav-spacer">×</span>
+      
+      <a class="nav-link" href="/archives">Archives</a>
+    
+      
+        <span class="nav-spacer">×</span>
+      
+      <a class="nav-link" href="/ask/">Ask</a>
+    
+    
+  </nav>
+</header>
+
+    <div id="content">
+      <section class="question-box" aria-labelledby="question-box-title">
+  <h2 id="question-box-title">Question Box</h2>
+  <form id="question-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="00a0e767-2148-40d7-b94f-34fa71ebb6d0">
+    <input type="hidden" name="subject" value="奥德赛观测站 · 新的提问">
+    <input type="checkbox" name="botcheck" class="question-botcheck" tabindex="-1" aria-hidden="true">
+    <label class="question-label" for="question-message">你的问题</label>
+    <textarea id="question-message" name="message" rows="8" placeholder="如果您愿意留下自己的观点、感想、对站点的疑问、或是其他任意类型的言语，深海的暗流会为您将它们送达…" required aria-describedby="question-result"></textarea>
+    <div class="question-actions">
+      <p id="question-result" role="status" aria-live="polite" aria-atomic="true"></p>
+      <button type="submit"><span data-submit-label>Send</span> <span aria-hidden="true">→</span></button>
+    </div>
+  </form>
+</section>
+<script src="/js/question-box.js" defer></script>
+
+    </div>
+    <footer class="site-footer" aria-label="站点信息与作品许可">
+  <p>Based on <a target="_blank" rel="noopener" href="https://github.com/cjquines/hexo-theme-ascent">Ascent</a></p>
+  <p>Edited by a desperate aquatic creature.</p>
+  <p>Original writing licensed under <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.</p>
+</footer>
+
+  </div>
+  
+
+
+
+
+<div id="settings-container">
+  <button type="button" id="dark-mode" aria-label="切换深浅配色">深色</button>
+</div>
+<script>
+(() => {
+  const root = document.documentElement.style;
+  const button = document.getElementById('dark-mode');
+  let saved;
+  try { saved = localStorage.getItem('s'); } catch (_) {}
+  let dark = saved ? saved === '1' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const light = ['#fafafa','#f4f4f4','#212121','#808080','#b0b0b0','#b5c8cf','#618794','#dae4e7','#dae4e7'];
+  const night = ['#212121','#292929','#fff','#c0c0c0','#6e6e6e','#4d6b75','#96b1bb','#5d828e','#acc1c9'];
+  const names = ['bg-color','code-bg-color','text-color','secondary-color','tertiary-color','link-color','link-hover-color','link-bg-color','selection-color'];
+  function apply() {
+    names.forEach((name, index) => root.setProperty('--' + name, (dark ? night : light)[index]));
+    button.textContent = dark ? '浅色' : '深色';
+    button.setAttribute('aria-pressed', String(dark));
+  }
+  button.onclick = () => {
+    dark = !dark;
+    try { localStorage.setItem('s', dark ? '1' : '2'); } catch (_) {}
+    apply();
+  };
+  apply();
+})();
+</script>
+
+
+
+
+</body>
+</html>
