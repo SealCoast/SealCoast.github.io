@@ -39,7 +39,7 @@
       const data = await response.json();
       if (!response.ok || data.success !== true) throw new Error('Submission failed');
       form.reset();
-      result.textContent = '已收到你的问题，谢谢。';
+      result.textContent = '海浪听到了您的讯息。';
     } catch (error) {
       result.dataset.error = 'true';
       result.textContent = error.name === 'AbortError'
