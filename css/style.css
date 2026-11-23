@@ -882,3 +882,29 @@ td, th, table caption, table td, table th {
   .question-box textarea { min-height: 13rem; }
   .question-actions { gap: 0.75rem; }
 }
+
+/* Optional spoiler text: wrap a phrase in a span, or several paragraphs in a div. */
+.article-entry .spoiler-blur {
+  display: inline-block;
+  max-width: 100%;
+  text-indent: 0;
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* Keep grouped paragraphs full width and contain their existing margins. */
+.article-entry div.spoiler-blur {
+  display: flow-root;
+}
+
+.article-entry .spoiler-blur:hover,
+.article-entry .spoiler-blur:active,
+.article-entry .spoiler-blur:focus,
+.article-entry .spoiler-blur:focus-within {
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-entry .spoiler-blur { transition: none; }
+}
