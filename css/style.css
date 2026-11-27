@@ -908,3 +908,17 @@ td, th, table caption, table td, table th {
 @media (prefers-reduced-motion: reduce) {
   .article-entry .spoiler-blur { transition: none; }
 }
+
+/* Optional centered, muted introductory quotations in an article. */
+.article-entry .article-preface {
+  color: var(--secondary-color);
+  text-align: center;
+}
+.article-entry .article-preface p {
+  text-indent: 0;
+}
+
+/* Three additional lines after selected introductory quotations (body line-height: 1.5). */
+.article-entry .article-preface-spaced {
+  padding-bottom: 4.5em;
+}
